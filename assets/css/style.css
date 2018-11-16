@@ -1,4 +1,16 @@
+
+
+
+
+
+
+#quote {
+  color: white;
+  text-align: center;
+}
+
 #weather {
   display: flex;
   justify-content: flex-end;
+  color: white;
 }

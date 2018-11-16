@@ -1,5 +1,6 @@
 
 
+// @ts-ignore
 const todoApi = axios.create({
 	baseURL: 'https://bcw-sandbox.herokuapp.com/api/alanbutcher/todos/',
 	timeout: 3000
