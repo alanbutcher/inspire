@@ -1,8 +1,6 @@
 import TodoService from "./todo-service.js";
 
-
-
-var todoService = new TodoService
+let todoService = new TodoService
 
 // Use this getTodos function as your callback for all other edits
 function getTodos() {
@@ -11,16 +9,32 @@ function getTodos() {
 }
 
 function draw(todos) {
+	console.log(todos)
 	//WHAT IS MY PURPOSE?
 	//BUILD YOUR TODO TEMPLATE HERE
-	var template = ''
 	//DONT FORGET TO LOOP
+
+	let template = ''
+	todos.forEach(todo => {
+		
+		template += `
+		<div>
+		 <li>
+		 <input type="checkbox" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></input>
+		 ${todo.description}
+		 <button onclick="removeTodo('${todo._id}')">Delete</button>
+		 </li>
+		 <input type="checkbox" name="complete" id="complete" onchange="toggleTodoStatus(event)">
+		 </div>
+		`
+	})
+	document.getElementById('todo').innerHTML = template;
 }
 
 
 export default class TodoController {
 	constructor() {
-		// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
+		todoService.getTodos(draw)// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 	}
 	// You will need four methods
 	// getTodos should request your api/todos and give an array of todos to your callback fn
@@ -36,6 +50,7 @@ export default class TodoController {
 		var form = e.target
 		var todo = {
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			description: form.description.value
 		}
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
@@ -47,13 +62,15 @@ export default class TodoController {
 
 	toggleTodoStatus(todoId) {
 		// asks the service to edit the todo status
-		todoService.toggleTodoStatus(todoId, getTodos)
+		let todo = event.target 
+		todoService.toggleTodoStatus(todo, getTodos)
 		// YEP THATS IT FOR ME
+		getTodos()
 	}
 
-	removeTodo(todoId) {
+	removeTodo(_id) {
 		// ask the service to run the remove todo with this id
-
+		todoService.removeTodo(_id, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 

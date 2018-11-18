@@ -11,7 +11,7 @@ export default class WeatherController {
 	}
 	getWeather() {
 		weatherService.getWeather(weather => {
-			console.log(weather);
+			// console.log(weather);
 			let kTemp = weather.main.temp;
 			let fTemp = Math.ceil((kTemp * (9 / 5)) - 459.67);
 			let template = `

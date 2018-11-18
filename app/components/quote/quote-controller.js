@@ -4,7 +4,7 @@ let qs = new QuoteService
 
 
 function drawQuote(quoteData) {
-	console.log('What is the quote:', quoteData)			
+	// console.log('What is the quote:', quoteData)			
 	let quote = quoteData.quote;
 	let template = `
 	<h3>${quote.body}</h3>

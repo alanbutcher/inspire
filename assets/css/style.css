@@ -1,8 +1,10 @@
 
-
-
-
-
+#body {
+  background-size:cover;
+  height:100vh;
+  background-position: center;
+  text-shadow: 0 1px 5px rgba(0,0,0,.1)
+}
 
 #quote {
   color: white;
@@ -13,4 +15,9 @@
   display: flex;
   justify-content: flex-end;
   color: white;
+}
+
+#todo {
+  color: white;
+  font-weight: 300;
 }
