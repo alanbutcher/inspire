@@ -14,18 +14,19 @@ function draw(todos) {
 	//BUILD YOUR TODO TEMPLATE HERE
 	//DONT FORGET TO LOOP
 
-	let template = ''
+	let template = `<div>Todo's Remaining: ${todos.length}</div>`
 	todos.forEach(todo => {
 		
 		template += `
-		<div>
+			
 		 <li>
 		 <input type="checkbox" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></input>
-		 ${todo.description}
-		 <button onclick="removeTodo('${todo._id}')">Delete</button>
 		 </li>
-		 <input type="checkbox" name="complete" id="complete" onchange="toggleTodoStatus(event)">
-		 </div>
+		 ${todo.description}
+		<div>
+      <i class="fa fa-fw fa-trash action muted" onclick="app.controllers.todoController.removeTodo('${todo._id}')"></i>
+    </div>
+		 
 		`
 	})
 	document.getElementById('todo').innerHTML = template;
@@ -62,15 +63,14 @@ export default class TodoController {
 
 	toggleTodoStatus(todoId) {
 		// asks the service to edit the todo status
-		let todo = event.target 
-		todoService.toggleTodoStatus(todo, getTodos)
+		todoService.toggleTodoStatus(todoId, getTodos)
 		// YEP THATS IT FOR ME
-		getTodos()
+		
 	}
 
-	removeTodo(_id) {
+	removeTodo(todoId) {
 		// ask the service to run the remove todo with this id
-		todoService.removeTodo(_id, getTodos)
+		todoService.removeTodo(todoId, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 

@@ -19,7 +19,7 @@ export default class TodoService {
 		console.log("Getting the Todo List")
 		todoApi.get('')
 			.then((res) => { // <-- WHY IS THIS IMPORTANT????
-				todoList = res.data.data ///
+				
 				draw(res.data.data)
 			})
 			.catch(logError)
@@ -39,18 +39,20 @@ export default class TodoService {
 		//STEP 1: Find the todo by its index **HINT** todoList
 
 		let todo = todoList.find(i => i._id == todoId) ///MODIFY THIS LINE
-		todo.completed = !todo.completed
-		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
-		todoApi.put(todoId, todo)
-			.then(function (res) {
+		
+			//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
+			todoApi.put(todoId, todo)
+				.then(function (res) {
 					getTodos()
-				//DO YOU WANT TO DO ANYTHING WITH THIS?
-			})
+				
+					//DO YOU WANT TO DO ANYTHING WITH THIS?
+				})
+		
 			.catch(logError)
 	}
 
-	removeTodo(_id, getTodos) {
-		todoApi.delete(_id)
+	removeTodo(todoId, getTodos) {
+		todoApi.delete(todoId)
 			.then(res => {
 			getTodos()
 		})
