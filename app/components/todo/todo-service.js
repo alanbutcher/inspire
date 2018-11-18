@@ -40,6 +40,8 @@ export default class TodoService {
 
 		let todo = todoList.find(i => i._id == todoId) ///MODIFY THIS LINE
 		
+		if (todo.complete = !todo.complete)
+				
 			//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
 			todoApi.put(todoId, todo)
 				.then(function (res) {
