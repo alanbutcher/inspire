@@ -11,47 +11,50 @@
 	 crossorigin="anonymous">
 </head>
 
+<div class="container-fluid">
 <body id="body">
-
-	<div class="row">
-		<div class="col-12">
-			<div id="weather">
-				Your Weather Template
+		<div class="row">
+			<div class="col-12">
+				<div id="weather">
+					Your Weather Template
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="row spacer">
-		<span></span>
-	</div>
-
-	<div class="container center">
-	<div id="quote">
-		The Quote
-	</div>
-	</div>
-
-		<div class="row">
-		<div class="col-4 todoList offset-8">
-		<div>
-			<ul id="todo"></ul>
+		<div class="row spacer">
+			<span></span>
 		</div>
-		<form class="form" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-			<input type="text" name="description" placeholder="New Todo">
-			<button type="submit">New Todo</button>
-		</form>		
-	</div>
-	</div>
+
+		<div class="row text align-center" id="center">
+			<span id="quote">
+				The Quote
+			</span>
+		</div>
+
+		<footer>
+			<!-- <div class="row"> -->
+				<div class="col-4 todoList offset-8">
+					<div>
+						<ul id="todo"></ul>
+					</div>
+					<form class="form" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+						<input type="text" name="description" placeholder="New Todo">
+						<button type="submit">New Todo</button>
+					</form>		
+				</div>
+			<!-- </div> -->
+		</footer>
+		
+		
+		
+		
+		
+		<!--JS Libraries-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+		<!--Initialize App-->
+		
+		<script type='module' src="app/main.js"></script>
+	</body>
+</div>
 	
-
-
-
-
-	<!--JS Libraries-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-	<!--Initialize App-->
-
-	<script type='module' src="app/main.js"></script>
-</body>
-
 </html>

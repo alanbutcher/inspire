@@ -2,12 +2,16 @@ html {
   font-family: 'Lato', sans-serif;
 }
 #body {
+  height: fit-content;
+  position: relative;
   background-size:cover;
   height:100vh;
   background-position: center center;
   background-repeat: no-repeat;
   text-shadow: 0 1px 5px rgba(0,0,0,.4);
   font-family: 'Lato', sans-serif !important;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 .spacer {
   min-height: 10rem;
@@ -37,12 +41,11 @@ html {
   text-align: left;
 } */
 
-.center{
+#center{
   z-index: 1;
   display: block;
   width: 100%;
   text-align: center;
-  
 }
 
 #quote {
@@ -100,3 +103,7 @@ margin-top: -20;
   font-weight: 300;
 }
 
+footer {
+ width: 100vw;
+ bottom: 0;
+}
