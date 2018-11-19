@@ -15,7 +15,10 @@ export default class WeatherController {
 			let kTemp = weather.main.temp;
 			let fTemp = Math.ceil((kTemp * (9 / 5)) - 459.67);
 			let template = `
-			<p>${weather.name}  ${fTemp}°</p>
+			<div>
+			<p class="weather-name">${weather.name}</p>
+			<p class="weather-temp">${fTemp}°</p>
+			</div>
 			`
 			//What can you do with this weather object?
 			document.getElementById('weather').innerHTML=template

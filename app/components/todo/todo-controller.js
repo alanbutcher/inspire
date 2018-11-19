@@ -14,19 +14,16 @@ function draw(todos) {
 	//BUILD YOUR TODO TEMPLATE HERE
 	//DONT FORGET TO LOOP
 
-	let template = `<div>Todo's Remaining: ${todos.length}</div>`
+	let template = `<div class="todo-remaining">Todo's To Do: ${todos.length}</div>`
+
 	todos.forEach(todo => {
 		
 		template += `
-			
 		 <li>
-		 <input type="checkbox" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></input>
-		 </li>
+		 <input type="checkbox" ${todo.completed ? "checked" : ''} class="strike" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"></input>
 		 ${todo.description}
-		<div>
-      <i class="fa fa-fw fa-trash action muted" onclick="app.controllers.todoController.removeTodo('${todo._id}')"></i>
-    </div>
-		 
+		 <i class="fa fa-fw fa-trash action muted" onclick="app.controllers.todoController.removeTodo('${todo._id}')"></i>
+			</li>
 		`
 	})
 	document.getElementById('todo').innerHTML = template;

@@ -1,5 +1,5 @@
 const url = '//bcw-getter.herokuapp.com/?url=';
-const url2 = 'http://www.splashbase.co/api/v1/images/search?query=mountains'
+const url2 = 'http://www.splashbase.co/api/v1/images/search?query=city'
 const apiUrl = url + encodeURIComponent(url2);
 
 

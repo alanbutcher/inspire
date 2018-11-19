@@ -7,9 +7,10 @@ function drawQuote(quoteData) {
 	// console.log('What is the quote:', quoteData)			
 	let quote = quoteData.quote;
 	let template = `
-	<h3>${quote.body}</h3>
-	<h5><em>${quote.author}</em></h5>
-	
+	<div>
+	<p class="quote-body">${quote.body}</p>
+	<br> <p class="quote-author"><em>${quote.author}</em><ur></p>
+	</div>
 	`
 	document.getElementById('quote').innerHTML = template;
 }
