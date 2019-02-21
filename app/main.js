@@ -16,7 +16,5 @@ class app {
 }
 
 
-
-
 // @ts-ignore
 window.app = new app()  
